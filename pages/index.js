@@ -1,82 +1,71 @@
 import Head from 'next/head'
+import { useState } from 'react'
 
 export default function Home() {
+  
+  let [stands,setStands]=useState([])
+
+  let clickHandler=(e)=>{
+    e.preventDefault()
+  
+    let stand={
+      location:e.target.getLocation.value,
+      max:e.target.max.value,
+      min:e.target.min.value,
+      avg:e.target.avg.value
+    }
+    setStands(stands.concat([stand]))
+  }
+  
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <Head>
-        <title>Create Next App</title>
+        <title>Cookie Stand Admin</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <body className='w-screen align-top bg-green-50'>
+        <header className='top-0 w-screen mb-10 text-3xl font-bold bg-green-500 p0'>
+          <h1 className='p-4 '>Cookie Stand Admin</h1>
+        </header>
+        <main>
+        <form className='w-2/3 m-auto bg-green-300 rounded-lg' onSubmit={(e)=>clickHandler(e)}>
+          <h2 className='p-4 text-xl font-bold text-center'>
+            Create Cookie Stand
+          </h2>
+          <div className='w-11/12 m-auto'>
+            <label  for="location">Location: </label>
+            <input className='w-11/12' type="text"  id="getLocation"/>
+          </div>
+          <div className='flex p-9'>
+            <section className='grid w-3/12 text-center'>
+            <label for="max">Maximum customers per hour: </label>
+            <input className='w-4/5 m-auto' type="number" min='0' id="max"/>
+            </section>
+            <section className='grid w-3/12 text-center'>
+            <label for="min">Minimum customers per hour: </label>
+            <input className='w-4/5 m-auto' type="number" min='0' id="min"/>
+            </section>
+            <section className='grid w-3/12 text-center'>
+            <label for="avg">Average cookies per sale: </label>
+            <input className='w-4/5 m-auto' type="number" min='0' id="avg"/>
+            </section>
+            <section className='w-3/12 text-center'>
+            <button className='w-full h-full bg-green-500' type='submit'>Create</button>
+            </section>
+          </div>
+        </form>
+        <p className='w-screen mt-10 mb-10 text-center'>Report Table Comming Soon...</p>
+        {
+          stands.map((element)=>{
+            return <p className='text-center'>{JSON.stringify(element)}</p>
+          })
+        }
+        </main>
+        <footer className='bottom-0 p-3 bg-green-500 '>
+        ©2021
+        </footer>
+      </body>
 
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
-
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="p-3 font-mono text-lg bg-gray-100 rounded-md">
-            pages/index.js
-          </code>
-        </p>
-
-        <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className="flex items-center justify-center w-full h-24 border-t">
-        <a
-          className="flex items-center justify-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
-        </a>
-      </footer>
     </div>
   )
 }

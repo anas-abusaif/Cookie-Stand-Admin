@@ -6,7 +6,7 @@ export default function CreateForm(props) {
 
   return (
     <div>
-      <form className='w-2/3 m-auto bg-green-300 rounded-lg' onSubmit={(e)=>props.clickHandler(e)}>
+      <form className='w-2/3 m-auto bg-green-300 rounded-lg' onSubmit={(e)=>props.onCreate(e)}>
           <h2 className='p-4 text-xl font-bold text-center'>
             Create Cookie Stand
           </h2>

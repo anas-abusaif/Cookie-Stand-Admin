@@ -10,15 +10,18 @@ export default function ReportTable(props) {
     return (
       <table className='w-5/6 m-auto mt-4 mb-10 text-center border border-green-300 rounded-md'>
         <thead className='bg-green-500 border border-green-300'>
-          <td className='px-2'>Location</td>
+          <tr>
+          <th className='px-2'>Location</th>
           {
-            props.workingHours.map(item => {
+            props.workingHours.map(
+              (item,key) => {
               return (
-                <td>{item} </td>
+                <th>{item} </th>
               )
             })
           }
-          <td>Totals</td>
+          <th>Totals</th>
+          </tr>
         </thead>
 
         <tbody>
@@ -29,7 +32,7 @@ export default function ReportTable(props) {
                 <>
                   <td className='px-2 border border-black' >{stand.location}</td>
                   {
-                    stand.hourly_sales.map(item => {
+                    stand.hourly_sales.map((item,key) => {
                       return (
                         <td className='border border-black'> {item} </td>
                       )
@@ -56,14 +59,16 @@ export default function ReportTable(props) {
         </tbody>
 
         <tfoot className='bg-green-500 '>
+          <tr>
           <td className='px-2 font-semibold border border-black'>Totals</td>
           {
-            props.totals.map(item => {
+            props.totals.map((item,key) => {
               return (
                 <td className='font-semibold border border-black'>{item}</td>
               )
             })
           }
+          </tr>
         </tfoot>
       </table>
     )

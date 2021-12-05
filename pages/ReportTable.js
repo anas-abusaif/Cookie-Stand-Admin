@@ -10,15 +10,15 @@ export default function ReportTable(props) {
     return (
       <table className='w-5/6 m-auto mt-4 mb-10 text-center border border-green-300 rounded-md'>
         <thead className='bg-green-500 border border-green-300'>
-          <th className='px-2'>Location</th>
+          <td className='px-2'>Location</td>
           {
             props.workingHours.map(item => {
               return (
-                <th>{item} </th>
+                <td>{item} </td>
               )
             })
           }
-          <th>Totals</th>
+          <td>Totals</td>
         </thead>
 
         <tbody>

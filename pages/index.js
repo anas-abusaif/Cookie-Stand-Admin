@@ -6,9 +6,9 @@ export default function Home() {
   return (
     <div>
       <CustomHead/>
-      <body className='w-screen align-top bg-green-50'>
+      <div className='w-screen align-top bg-green-50'>
       <CookieStandAdmin/>
-      </body>
+      </div>
     </div>
   )
 }

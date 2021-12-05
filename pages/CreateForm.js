@@ -11,20 +11,20 @@ export default function CreateForm(props) {
             Create Cookie Stand
           </h2>
           <div className='w-11/12 m-auto'>
-            <label  for="location">Location: </label>
+            <label  htmlFor="location">Location: </label>
             <input className='w-11/12' type="text"  id="getLocation"/>
           </div>
           <div className='flex p-9'>
             <section className='grid w-3/12 text-center'>
-              <label for="max">Maximum customers per hour: </label>
+              <label htmlFor="max">Maximum customers per hour: </label>
               <input className='w-4/5 m-auto' type="number" min='0' id="max"/>
             </section>
             <section className='grid w-3/12 text-center'>
-              <label for="min">Minimum customers per hour: </label>
+              <label htmlFor="min">Minimum customers per hour: </label>
               <input className='w-4/5 m-auto' type="number" min='0' id="min"/>
             </section>
             <section className='grid w-3/12 text-center'>
-              <label for="avg">Average cookies per sale: </label>
+              <label htmlFor="avg">Average cookies per sale: </label>
               <input className='w-4/5 m-auto' type="number" min='0' id="avg"/>
             </section>
             <section className='w-3/12 text-center'>
